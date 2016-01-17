@@ -26,7 +26,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 	GdiplusStartupInput gpsi;
 	if (GdiplusStartup(&gpToken, &gpsi, NULL) != Ok)
 	{
-		MessageBox(NULL, TEXT("GDI+ ¶óÀÌºê·¯¸®¸¦ ÃÊ±âÈ­ÇÒ ¼ö ¾ø½À´Ï´Ù."), TEXT("¾Ë¸²"), MB_OK);
+		MessageBox(NULL, TEXT("GDI+ ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ì´ˆê¸°í™”í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤."), TEXT("ì•Œë¦¼"), MB_OK);
 		return 0;
 	}
 
