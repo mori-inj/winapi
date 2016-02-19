@@ -82,6 +82,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 
 	case WM_TIMER:
 		InvalidateRect(hWnd, NULL, FALSE);
+		break;
 
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
