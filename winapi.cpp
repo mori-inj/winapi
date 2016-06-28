@@ -4,7 +4,8 @@
 using namespace Gdiplus;
 #pragma comment(lib, "gdiplus")
 
-
+const int WIDTH = 800;
+const int HEIGHT = 600;
 
 HINSTANCE g_hInst;
 HWND hWndMain;
@@ -46,10 +47,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 		L"Window Class Name",
 		L"Window Title Name",
 		WS_OVERLAPPEDWINDOW,
-		GetSystemMetrics(SM_CXFULLSCREEN) / 2 - 400,
-		GetSystemMetrics(SM_CYFULLSCREEN) / 2 - 300,
-		800,
-		600,
+		GetSystemMetrics(SM_CXFULLSCREEN) / 2 - WIDTH/2,
+		GetSystemMetrics(SM_CYFULLSCREEN) / 2 - HEIGHT/2,
+		WIDTH,
+		HEIGHT,
 		NULL,
 		NULL,
 		hInstance,
