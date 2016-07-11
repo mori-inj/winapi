@@ -162,7 +162,7 @@ void OnPaintA(HDC hdc, int ID, int x, int y, double alpha)
 		1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
 		0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-		0.0f, 0.0f, 0.0f, alpha, 0.0f,
+		0.0f, 0.0f, 0.0f, (Gdiplus::REAL)alpha, 0.0f,
 		0.0f, 0.0f, 0.0f, 0.0f, 1.0f
 	};
 
@@ -185,6 +185,6 @@ void OnPaintA(HDC hdc, int ID, int x, int y, double alpha)
 	pStream->Release();
 	if (I.GetLastStatus() != Ok) return;
 
-	RectF destination(0, 0, I.GetWidth(), I.GetHeight());
-	G.DrawImage(&I, destination, x, y, I.GetWidth(), I.GetHeight(), UnitPixel, &ImgAttr);
+	RectF destination(0, 0, (Gdiplus::REAL)I.GetWidth(), (Gdiplus::REAL)I.GetHeight());
+	G.DrawImage(&I, destination, x, y, (Gdiplus::REAL)I.GetWidth(), (Gdiplus::REAL)I.GetHeight(), UnitPixel, &ImgAttr);
 }
