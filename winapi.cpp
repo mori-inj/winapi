@@ -77,48 +77,55 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT iMsg, WPARAM wParam, LPARAM lParam)
 
 	switch (iMsg)
 	{
-	case WM_CREATE:
-		SetTimer(hWnd, 1, 10, 0);
-		break;
+		case WM_CREATE:
+		{
+			SetTimer(hWnd, 1, 10, 0);
+			break;
+		}
 
-	case WM_TIMER:
-		InvalidateRect(hWnd, NULL, FALSE);
-		break;
+		case WM_TIMER:
+		{
+			InvalidateRect(hWnd, NULL, FALSE);
+			break;
+		}
 
-	case WM_PAINT:
-		hdc = BeginPaint(hWnd, &ps);
-		GetClientRect(hWnd, &crt);
+		case WM_PAINT:
+		{
+			hdc = BeginPaint(hWnd, &ps);
+			GetClientRect(hWnd, &crt);
 
-		MemDC = CreateCompatibleDC(hdc);
-		hBit = CreateCompatibleBitmap(hdc, crt.right, crt.bottom);
-		OldBit = (HBITMAP)SelectObject(MemDC, hBit);
-		//hBrush = CreateSolidBrush(RGB(255, 255, 255));
-		//oldBrush = (HBRUSH)SelectObject(MemDC, hBrush);
-		//hPen = CreatePen(PS_SOLID, 5, RGB(255, 255, 255));
-		//oldPen = (HPEN)SelectObject(MemDC, hPen);
+			MemDC = CreateCompatibleDC(hdc);
+			hBit = CreateCompatibleBitmap(hdc, crt.right, crt.bottom);
+			OldBit = (HBITMAP)SelectObject(MemDC, hBit);
+			//hBrush = CreateSolidBrush(RGB(255, 255, 255));
+			//oldBrush = (HBRUSH)SelectObject(MemDC, hBrush);
+			//hPen = CreatePen(PS_SOLID, 5, RGB(255, 255, 255));
+			//oldPen = (HPEN)SelectObject(MemDC, hPen);
 
-		//FillRect(MemDC, &crt, hBrush);
-		SetBkColor(MemDC, RGB(255, 255, 255));
+			//FillRect(MemDC, &crt, hBrush);
+			SetBkColor(MemDC, RGB(255, 255, 255));
 
 
 
-		//OnPaint(MemDC, TITLE0, 0, 0);
+			//OnPaint(MemDC, TITLE0, 0, 0);
 
-		BitBlt(hdc, 0, 0, crt.right, crt.bottom, MemDC, 0, 0, SRCCOPY);
-		SelectObject(MemDC, OldBit);
-		DeleteDC(MemDC);
-		//SelectObject(MemDC, oldPen);
-		//DeleteObject(hPen);
-		//SelectObject(MemDC, oldBrush);
-		//DeleteObject(hBrush);
-		DeleteObject(hBit);
+			BitBlt(hdc, 0, 0, crt.right, crt.bottom, MemDC, 0, 0, SRCCOPY);
+			SelectObject(MemDC, OldBit);
+			DeleteDC(MemDC);
+			//SelectObject(MemDC, oldPen);
+			//DeleteObject(hPen);
+			//SelectObject(MemDC, oldBrush);
+			//DeleteObject(hBrush);
+			DeleteObject(hBit);
 
-		EndPaint(hWnd, &ps);
-		break;
-
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		break;
+			EndPaint(hWnd, &ps);
+			break;
+		}
+		case WM_DESTROY:
+		{
+			PostQuitMessage(0);
+			break;
+		}
 	}
 	return DefWindowProc(hWnd, iMsg, wParam, lParam);
 }
